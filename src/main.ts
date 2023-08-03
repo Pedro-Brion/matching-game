@@ -1,4 +1,5 @@
 import 'virtual:uno.css'
+import './app.css'
 import '@unocss/reset/tailwind-compat.css'
 import App from './App.svelte'
 

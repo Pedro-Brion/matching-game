@@ -1,10 +1,12 @@
 <script lang="ts">
+  import Game from "./lib/components/Game.svelte";
+  import StartScreen from "./lib/components/StartScreen.svelte";
+  
 </script>
 
 <main>
-  <div class:bg-darkin={true} class="w-full h-screen overflow-hidden">
-    <h1 class="mx-4 text-center">Hello</h1>
-  </div>
+ <StartScreen />
+ <!-- <Game /> -->
 </main>
 
 <style>
