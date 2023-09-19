@@ -20,7 +20,7 @@ body:before {
   left: -80%;
   position: absolute;
   content:"";
-  background-image: radial-gradient(circle at 1px 1px, #ffffff09 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, #ffffff10 1px, transparent 0);
   background-size: 40px 40px;
   background-repeat: repeat;
   transform: rotate(48deg);
@@ -31,4 +31,23 @@ body{
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+.card{
+  overflow: hidden;
+  position: relative;
+}
+.card:before{  
+  background-image: radial-gradient(circle at center, #8080bb30 2px, #0000ff10 11px);  
+  background-size: 20px 20px;
+  width: 250%;
+  height: 250%;
+  top:-80%;
+  left:-80%;  
+  position: absolute;
+  transform: rotate(15deg);
+  content:"";
+}
+
+.card.flipped:before{
+  background-image: none;
 }

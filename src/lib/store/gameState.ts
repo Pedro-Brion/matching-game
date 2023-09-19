@@ -1,27 +1,31 @@
-import { writable } from 'svelte/store';
+import { writable, type Writable } from "svelte/store";
 
 export enum State {
-  Ready = 'ready',
-  Playing  = 'playing',
-  GameOver = 'gameover'
+  Ready = "ready",
+  Playing = "playing",
+  Matching = "matching",
+  GameOver = "gameover",
+  Paused = "paused",
 }
-type GameState = State.Playing | State.Ready | State.GameOver;
 
 export enum ActionType {
-  Click = 'click',
-  Esc = 'esc',
+  Click = "click",
+  KeyDown = "keydown",
+  FinishedMatching = "finished",
 }
 
 export type Action = {
-  type:ActionType,
-  data:Object,
-}
+  type: ActionType;
+  data?: any;
+};
 
-export const useState = (game)=>{
-  const state =  writable<GameState>(State.Ready)
+export const useState = (game: GameMachine) => {
+  const state = writable<State>(State.Ready);
 
-  const send = (event: Action) =>{
-    state.update(()=> game(state, event))
-  }
-  return { state, send}
-}
+  const send = (event: Action) => {
+    state.update((state) => game(state, event));
+  };
+  return { state, send };
+};
+
+export type GameMachine = (state: State, event: Action) => State;

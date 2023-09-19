@@ -1,50 +1,32 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import Card from "./Card.svelte";
-  import shuffle from "./../utils/shuffle";
+  import { ActionType } from "../store/gameState";
 
-  const emojis = ["💀", "🎃", "🍙", "👾", "👽", "🎮", "👓"];
-  let selected = [];
-  let matches = [];
-  const cards = shuffle([...emojis, ...emojis]);
+  export let selected = [];
+  export let matches = [];
+  export let cards: string[];
 
-  const handleSelected = (selected) => {
-    selected = [...selected, selected];
-  };
-
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key == "Escape") console.log("PAUSE");
-  };
-
-  const matchCards = () => {
-    const [firstCard, secondCard] = [cards[selected[0]],cards[selected[1]]]
-    // Timeout so you can see the card
-    setTimeout(() => {
-      if (firstCard === secondCard) matches = [...matches, ...selected];
-      selected = [];
-    }, 500);
-  };
-
-  $: selected.length === 2 && matchCards();
+  const dispatch = createEventDispatcher();
 </script>
 
-<svelte:window on:keydown={handleKeyDown} />
-
-  <div class="main">
-    <h1>Score: {matches.length / 2}</h1>
-    <div class="container flex flex-wrap justify-center mx-auto">
-      {#each cards as card, index (index)}
-        <Card
-          selected={selected.includes(index)}
-          currentSelection={index === selected[selected.length - 1]}
-          matched={matches.includes(index)}
-          on:select={handleSelected}
-          {card}
-          {index}
-        />
-      {/each}
-    </div>
+<div class="main">
+  <h1>Score: {matches.length * 10}</h1>
+  <div class="container flex flex-wrap justify-center mx-auto">
+    {#each cards as card, index (index)}
+      <Card
+        selected={selected.includes(index)}
+        currentSelection={index === selected[selected.length - 1]}
+        matched={matches.includes(card)}
+        on:select={(event) =>
+          dispatch("send", { type: ActionType.Click, data: event.detail })}
+        {card}
+        {index}
+      />
+    {/each}
   </div>
-  <span>{selected}</span>
+</div>
+<span>{selected}</span>
 
 <style>
 </style>

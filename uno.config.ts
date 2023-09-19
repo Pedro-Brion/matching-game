@@ -8,7 +8,7 @@ export default defineConfig({
   shortcuts: [
     {
       main:"w-full h-screen overflow-hidden flex justify-center flex-col text-center items-center",
-      card: "px-10 py-16 border-yellow-50 border rounded-xl text-5xl w-40 h-56 flex items-center justify-center mx-5 my-5"
+      card: "px-10 py-16 border-yellow-50 border rounded-xl text-5xl w-40 h-56 flex items-center justify-center mx-5 my-5 bg-darkin"
     },
   ],
   presets: [
@@ -22,7 +22,7 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      darkin: "#8080bb",
+      darkin: "#8080bb30",
     },
   },
   rules: [

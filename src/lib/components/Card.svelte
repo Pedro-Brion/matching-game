@@ -23,19 +23,17 @@
   };
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
 {#if selected || matched}
-  <div
-    class="card"
+  <button
+    class="card flipped"
     on:click={select}
     class:glow={currentSelection || matched}
     in:spin={{ delay: 0, duration: 300, spin: 180 }}
   >
     <span in:spin={{ delay: 150, duration: 150, spin: 90 }}>{card}</span>
-  </div>
+  </button>
 {:else}
-  <div
+  <button
     class="card"
     on:click={select}
     class:glow={currentSelection || matched}
