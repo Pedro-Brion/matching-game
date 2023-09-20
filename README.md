@@ -8,3 +8,6 @@
 Project inspired by the vídeo **[Do This Instead Of Representing State With Booleans](https://youtu.be/4Lom_lqSGoY)**, by the channel **[Joy of Code](https://www.youtube.com/@JoyofCodeDev)**.
 
 The main objective is to create a Matching game, powered by [Svelte](https://svelte.dev/) and [UnoCSS](https://unocss.dev/), using the [State Machine](https://refactoring.guru/design-patterns/state) pattern;
+
+## Try it!
+[Match Game](https://briondev.com)
