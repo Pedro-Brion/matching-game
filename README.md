@@ -12,4 +12,4 @@ The main objective is to create a Matching game, powered by [Svelte](https://sve
 Please feel free to share your thoughts and contribute by submitting pull requests.
 
 ## Try it out!
-You can try the deployed version [here](https://briondev.com).
+You can try the deployed version [here](https://matchgame.briondev.com/).
